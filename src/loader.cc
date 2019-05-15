@@ -12,6 +12,10 @@ RENDERDOC_API_1_3_0* renderdoc::renderDocApi = nullptr;
 
 bool renderdoc::init()
 {
+    // Return success if already initialized
+    if (renderDocApi)
+        return true;
+
 #ifdef _WIN32
     if (HMODULE mod = GetModuleHandleA("renderdoc.dll"))
     {
